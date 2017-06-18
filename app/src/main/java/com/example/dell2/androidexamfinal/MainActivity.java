@@ -15,6 +15,7 @@ import collector.BaseActivity;
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private LinearLayout WY;
     private LinearLayout ZQ;
+    private LinearLayout MO;
 
 
     @Override
@@ -29,8 +30,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void init(){
         WY=(LinearLayout)findViewById(R.id.WY);
         ZQ=(LinearLayout)findViewById(R.id.ZQ);
+        MO=(LinearLayout)findViewById(R.id.MO);
         WY.setOnClickListener(this);
         ZQ.setOnClickListener(this);
+        MO.setOnClickListener(this);
     }
     public void onClick(View view){
         switch (view.getId()){
@@ -39,6 +42,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.ZQ:
                 ZQ_activity.actionStart(MainActivity.this);
+                break;
+            case R.id.MO:
+                model_activity.actionStart(MainActivity.this);
                 break;
             default:
                 break;

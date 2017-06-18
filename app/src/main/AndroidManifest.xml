@@ -29,6 +29,8 @@
         <activity android:name=".WY_test2_activity" />
         <activity android:name=".WY_test3_activity" />
         <activity android:name=".WY_test4_activity" />
+        <activity android:name=".model_activity" />
+        <activity android:name=".model_test6_activity" />
     </application>
 
 </manifest>
