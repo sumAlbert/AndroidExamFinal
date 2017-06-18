@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.dell2.androidexamfinal.MainActivity">
+    android:orientation="vertical">
 
     <include layout="@layout/title_layout_oo" />
     <ScrollView
@@ -18,7 +15,7 @@
             android:orientation="vertical"
             >
             <LinearLayout
-                android:id="@+id/ZQ"
+                android:id="@+id/test1_zq"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_standard_item"
                 android:orientation="horizontal">
@@ -27,7 +24,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="ZQ"
+                    android:text="test1"
                     android:layout_marginLeft="15dp"
                     android:textSize="@dimen/font_input"
                     android:textColor="@color/font_weight">
@@ -40,7 +37,7 @@
                 </ImageView>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/WY"
+                android:id="@+id/test2_zq"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/line_standard_item"
                 android:orientation="horizontal">
@@ -49,7 +46,51 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="WY"
+                    android:text="test2"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="@dimen/font_input"
+                    android:textColor="@color/font_weight">
+                </TextView>
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/next_gray">
+                </ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/test3_zq"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_standard_item"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="test3"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="@dimen/font_input"
+                    android:textColor="@color/font_weight">
+                </TextView>
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/next_gray">
+                </ImageView>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/test4_zq"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_standard_item"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="test4"
                     android:layout_marginLeft="15dp"
                     android:textSize="@dimen/font_input"
                     android:textColor="@color/font_weight">
@@ -63,5 +104,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

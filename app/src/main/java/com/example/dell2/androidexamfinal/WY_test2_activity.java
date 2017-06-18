@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import collector.BaseActivity;
 
@@ -12,9 +12,8 @@ import collector.BaseActivity;
  * Created by dell2 on 2017/6/19.
  */
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private LinearLayout WY;
-    private LinearLayout ZQ;
+public class WY_test2_activity extends BaseActivity implements View.OnClickListener{
+    private TextView titleName;
 
 
     @Override
@@ -23,29 +22,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_wy_test2);
         init();
     }
     public void init(){
-        WY=(LinearLayout)findViewById(R.id.WY);
-        ZQ=(LinearLayout)findViewById(R.id.ZQ);
-        WY.setOnClickListener(this);
-        ZQ.setOnClickListener(this);
+        titleName=(TextView)findViewById(R.id.title_name);
+        titleName.setText("WY_test2");
     }
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.WY:
-                WY_activity.actionStart(MainActivity.this);
-                break;
-            case R.id.ZQ:
-                ZQ_activity.actionStart(MainActivity.this);
-                break;
             default:
                 break;
         }
     }
     public static void actionStart(Context context){
-        Intent intent=new Intent(context,model_activity.class);
+        Intent intent=new Intent(context,WY_test2_activity.class);
         context.startActivity(intent);
     }
 }

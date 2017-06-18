@@ -12,7 +12,7 @@ import collector.BaseActivity;
  * Created by dell2 on 2017/6/19.
  */
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class model_activity extends BaseActivity implements View.OnClickListener{
     private LinearLayout WY;
     private LinearLayout ZQ;
 
@@ -35,10 +35,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void onClick(View view){
         switch (view.getId()){
             case R.id.WY:
-                WY_activity.actionStart(MainActivity.this);
+                WY_activity.actionStart(model_activity.this);
                 break;
             case R.id.ZQ:
-                ZQ_activity.actionStart(MainActivity.this);
+                ZQ_activity.actionStart(model_activity.this);
                 break;
             default:
                 break;

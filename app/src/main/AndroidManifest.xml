@@ -19,6 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WY_activity" />
+        <activity android:name=".ZQ_activity" />
+        <activity android:name=".ZQ_test1_activity" />
+        <activity android:name=".ZQ_test2_activity" />
+        <activity android:name=".ZQ_test3_activity" />
+        <activity android:name=".ZQ_test4_activity" />
+        <activity android:name=".WY_test1_activity" />
+        <activity android:name=".WY_test2_activity" />
+        <activity android:name=".WY_test3_activity" />
+        <activity android:name=".WY_test4_activity" />
     </application>
 
 </manifest>
