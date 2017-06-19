@@ -30,6 +30,7 @@ public class model_test1_activity extends BaseActivity {
         setContentView(R.layout.activity_model_test1);
         Spinner spinner=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,blood);
+//        simple_spinner_dropdown_item系统的布局文件
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.VISIBLE);
@@ -45,9 +46,12 @@ public class model_test1_activity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+//                从activity1到activiry2传值
                 Intent intent=new Intent(model_test1_activity.this,model_test1_activity2.class);
+//              传入name
                 String nameString=name.getText().toString();
                 intent.putExtra("name",nameString);
+//              传入单选的sex
                 String sexString=null;
                 String hobbyString="";
                 for(int i=0;i<radioGroup.getChildCount();i++){
@@ -58,6 +62,7 @@ public class model_test1_activity extends BaseActivity {
                     }
                 }
                 intent.putExtra("sex",sexString);
+//                传入多选的hobby
                 if(checkBox1.isChecked()){
                     hobbyString=hobbyString+checkBox1.getText().toString()+" ";
                 }
@@ -87,6 +92,7 @@ public class model_test1_activity extends BaseActivity {
             }
         });
     }
+//    固定的 用于modelactivity 开始被调用
     public static void actionStart(Context context){
         Intent intent=new Intent(context,model_test1_activity.class);
         context.startActivity(intent);

@@ -42,6 +42,7 @@ public class MyService extends Service {
     class MyBinder extends Binder{
 
     }
+    //
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
