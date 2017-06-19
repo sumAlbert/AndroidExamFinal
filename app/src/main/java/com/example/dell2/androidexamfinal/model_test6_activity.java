@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapt.Model_Test6_Adapt;
-import adapt.Test6_ZQ_Adapt;
 import collector.BaseActivity;
 
 /**
@@ -44,7 +43,7 @@ public class model_test6_activity extends BaseActivity{
 
         test6_textView.setText("fragment1");
 
-        Model_Test6_Adapt model_test6_adapt=new Model_Test6_Adapt(model_test6_activity.this,R.layout.activity_model_test6,data);
+        Model_Test6_Adapt model_test6_adapt=new Model_Test6_Adapt(model_test6_activity.this,R.layout.listview_model_test6,data);
         test6_ListView.setAdapter(model_test6_adapt);
         test6_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

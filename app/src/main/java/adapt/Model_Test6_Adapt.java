@@ -33,8 +33,8 @@ public class Model_Test6_Adapt extends ArrayAdapter<String>{
         }else{
             view=convertView;
         }
-        TextView test6_ZQ_textView=(TextView)view.findViewById(R.id.test6_textView);
-        test6_ZQ_textView.setText(str);
+        TextView test6_textView=(TextView)view.findViewById(R.id.test6_textView);
+        test6_textView.setText(str);
         return view;
     }
 }
