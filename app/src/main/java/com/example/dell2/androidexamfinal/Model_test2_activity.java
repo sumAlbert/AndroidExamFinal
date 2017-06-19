@@ -26,6 +26,9 @@ import service.MyService;
  * Created by wangyan on 2017/6/19.
  */
 
+//访问
+//    牵涉到service里面myservice（java）
+//    layout里面activity_model_test2（xml）
 public class Model_test2_activity  extends BaseActivity implements View.OnClickListener{
     private LinearLayout test2_LL_1;
     private LinearLayout test2_LL_2;

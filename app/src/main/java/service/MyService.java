@@ -48,17 +48,20 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         return myBinder;
     }
+//    初始化
     @Override
     public void onCreate(){
         super.onCreate();
         Log.d("service","create");
     }
+//    销毁
     @Override
     public void onDestroy(){
         super.onDestroy();
         timer.cancel();
         Log.d("service","destroy");
     }
+//    开始请求
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         timer.schedule(new TimerTask() {
@@ -77,6 +80,7 @@ public class MyService extends Service {
                 HttpURLConnection connection=null;
                 BufferedReader reader=null;
                 try {
+//                    ！！！！！修改
                     URL url=new URL("http://172.30.198.53:8080/Test2_ZQ?userID=10152510288&Name=wy");
                     connection=(HttpURLConnection)url.openConnection();
                     connection.setRequestMethod("GET");
