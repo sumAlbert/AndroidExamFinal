@@ -2,8 +2,10 @@ package service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -28,12 +30,22 @@ import java.util.TimerTask;
  */
 
 public class MyService extends Service {
-    private Handler handler=new Handler();
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            Toast.makeText(MyService.this,(String)msg.obj,Toast.LENGTH_SHORT).show();
+        }
+    };
     private Timer timer=new Timer();
+    private MyBinder myBinder;
+    class MyBinder extends Binder{
+
+    }
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return myBinder;
     }
     @Override
     public void onCreate(){
@@ -57,7 +69,6 @@ public class MyService extends Service {
         Log.d("service","execute");
         return super.onStartCommand(intent, flags, startId);
     }
-
     public void connectTest(){
         new Thread(new Runnable() {
             @Override
@@ -81,7 +92,7 @@ public class MyService extends Service {
                     while((line=reader.readLine())!=null){
                         response.append(line);
                     }
-                    Toast.makeText(MyService.this,"123",Toast.LENGTH_SHORT).show();
+                    handler.obtainMessage(1,response.toString()).sendToTarget();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }finally {
