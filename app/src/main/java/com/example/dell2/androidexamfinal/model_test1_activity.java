@@ -30,7 +30,7 @@ public class model_test1_activity extends BaseActivity {
         setContentView(R.layout.activity_model_test1);
         Spinner spinner=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,blood);
-//        simple_spinner_dropdown_item为系统的布局文件
+//        simple_spinner_dropdown_item系统的布局文件
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setVisibility(View.VISIBLE);
