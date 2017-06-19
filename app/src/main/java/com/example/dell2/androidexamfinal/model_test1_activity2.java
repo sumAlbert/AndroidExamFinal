@@ -13,6 +13,7 @@ import collector.BaseActivity;
 public class model_test1_activity2 extends BaseActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        在activity1中通过intent传入值
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_model_test12);
         Intent intent=getIntent();

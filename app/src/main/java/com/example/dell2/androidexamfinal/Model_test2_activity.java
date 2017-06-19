@@ -57,10 +57,12 @@ public class Model_test2_activity  extends BaseActivity implements View.OnClickL
         {
             case R.id.test2_LL_1:
                 Intent start=new Intent(this, MyService.class);
+//                开始服务
                 startService(start);
                 break;
             case R.id.test2_LL_2:
                 Intent stop=new Intent(this, MyService.class);
+//                停止服务
                 stopService(stop);
                 break;
             default:
