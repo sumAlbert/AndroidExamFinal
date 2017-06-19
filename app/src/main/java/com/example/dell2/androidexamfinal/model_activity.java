@@ -56,6 +56,18 @@ public class model_activity extends BaseActivity implements View.OnClickListener
     }
     public void onClick(View view){
         switch (view.getId()){
+            case R.id.test1_mo:
+                model_test1_activity.actionStart(model_activity.this);
+                break;
+            case R.id.test3_mo:
+                Model_test3_activity.actionStart(model_activity.this);
+                break;
+            case R.id.test4_mo:
+                Model_test4_activity.actionStart(model_activity.this);
+                break;
+            case R.id.test5_mo:
+                Model_test5_activity.actionStart(model_activity.this);
+                break;
             case R.id.test6_mo:
                 model_test6_activity.actionStart(model_activity.this);
                 break;

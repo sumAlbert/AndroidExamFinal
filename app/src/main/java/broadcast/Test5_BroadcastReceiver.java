@@ -9,9 +9,11 @@ import android.widget.Toast;
  * Created by dell2 on 2017/6/18.
  */
 
-public class Test5_ZQ_BroadcastReceiver extends BroadcastReceiver {
+//接收器 不确定接受什么广播
+public class Test5_BroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context,"received in Test5_ZQ_BroadcastReceiver",Toast.LENGTH_SHORT).show();
+//        收到广播后 调用的函数
+        Toast.makeText(context,"received in Test5_BroadcastReceiver",Toast.LENGTH_SHORT).show();
     }
 }

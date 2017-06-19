@@ -8,6 +8,9 @@
     tools:context="com.example.dell2.androidexamfinal.MainActivity">
 
     <include layout="@layout/title_layout_oo" />
+    <!--scrollview只能有一个linearlayout 但其中可以有无限多的子元素-->
+    <!--scrollview相比于linearlayout可以无限下拉-->
+    <!--相比于listview 需要写每一项内容-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

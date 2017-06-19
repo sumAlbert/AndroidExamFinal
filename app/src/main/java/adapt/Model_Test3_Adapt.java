@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-
+import com.example.dell2.androidexamfinal.R;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import entity.Touch;
  * Created by dell2 on 2017/6/18.
  */
 
-public class Test3_ZQ_Adapt extends ArrayAdapter<Touch> {
+public class Model_Test3_Adapt extends ArrayAdapter<Touch> {
     private int resourceId;
-    public Test3_ZQ_Adapt(@NonNull Context context, @LayoutRes int resource, @NonNull List<Touch> objects) {
+    public Model_Test3_Adapt(@NonNull Context context, @LayoutRes int resource, @NonNull List<Touch> objects) {
         super(context, resource, objects);
         resourceId=resource;
     }
@@ -34,10 +34,10 @@ public class Test3_ZQ_Adapt extends ArrayAdapter<Touch> {
         }else{
             view=convertView;
         }
-//        TextView test3_ZQ_name=(TextView)view.findViewById(R.id.test3_ZQ_name);
-//        TextView test3_ZQ_tel=(TextView)view.findViewById(R.id.test3_ZQ_tel);
-//        test3_ZQ_name.setText(item.getName());
-//        test3_ZQ_tel.setText(item.getTel());
+        TextView model_test3_name=(TextView)view.findViewById(R.id.model_test3_name);
+        TextView model_test3_tel=(TextView)view.findViewById(R.id.modeL_test3_tel);
+        model_test3_name.setText(item.getName());
+        model_test3_tel.setText(item.getTel());
         return view;
     }
 }
