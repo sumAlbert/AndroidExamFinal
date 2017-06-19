@@ -38,6 +38,7 @@
         <activity android:name=".Model_test5_activity"/>
         <activity android:name=".model_test6_activity" />
         <activity android:name=".Model_test7_activity" />
+        <activity android:name=".Model_test8_activity" />
         <activity android:name=".model_test1_activity2" />
         <activity android:name=".Model_test4_activity" />
         <!--广播接收器的注册-->
