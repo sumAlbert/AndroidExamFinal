@@ -9,12 +9,12 @@ import android.widget.Toast;
  * Created by dell2 on 2017/6/17.
  */
 
-public class DbHelp_ZQ extends SQLiteOpenHelper {
+public class DbHelp extends SQLiteOpenHelper {
     public static final String CREATE_NAME="create table name ("
             +"id integer primary key autoincrement,"
             +"name text)";
     private Context context;
-    public DbHelp_ZQ(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DbHelp(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.context=context;
     }
