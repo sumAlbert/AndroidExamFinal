@@ -19,6 +19,7 @@ import java.util.List;
 import adapt.Test8_Adapt;
 import collector.BaseActivity;
 import db.DbHelp;
+import entity.TableItem;
 
 /**
  * Created by wangyan on 2017/6/19.
@@ -28,7 +29,7 @@ public class Model_test8_activity extends BaseActivity {
     private DbHelp dbHelp;
     private ListView test8_ListView;
     private Test8_Adapt test8_adapt;
-    private List<String> data=new ArrayList<>();
+    private List<TableItem> data=new ArrayList<>();
     private int pos=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +41,39 @@ public class Model_test8_activity extends BaseActivity {
         init();
     }
     public void init(){
-        dbHelp=new DbHelp(this,"Name.db",null,1);
+        dbHelp=new DbHelp(this,"MyDb.db",null,1);
         displayDb();
         test8_ListView=(ListView)findViewById(R.id.test8_ListView);
+//        每一项适配
         test8_adapt=new Test8_Adapt(Model_test8_activity.this,R.layout.listview_model_test8,data);
         test8_ListView.setAdapter(test8_adapt);
+//        点击listview每一项的触发函数
         test8_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+//            i为第几项
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 AlertDialog.Builder dialog=new AlertDialog.Builder(Model_test8_activity.this);
                 pos=i;
+//               设置对话框的标题
                 dialog.setTitle("Delete this item?");
-                dialog.setMessage(data.get(i));
+//                设置对话框的内容
+                dialog.setMessage(data.get(i).getName());
+//                设置是否取消
                 dialog.setCancelable(false);
+//                设置积极按钮
                 dialog.setPositiveButton("OK",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteItem(data.get(pos));
+                        deleteItem(data.get(pos).getName());
+//                        现在的data删除
                         data.clear();
+//                        从新获取元素 从新适配
                         displayDb();
                         test8_adapt=new Test8_Adapt(Model_test8_activity.this,R.layout.listview_model_test8,data);
                         test8_ListView.setAdapter(test8_adapt);
                     }
                 });
+//                设置消极按钮
                 dialog.setNegativeButton("Cancel",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -78,15 +89,21 @@ public class Model_test8_activity extends BaseActivity {
         Intent intent=new Intent(context,Model_test8_activity.class);
         context.startActivity(intent);
     }
+
+//    展示数据  把数据库的数据组装到data里面每一项
     public void displayDb(){
         SQLiteDatabase sqLiteDatabase=dbHelp.getWritableDatabase();
-        Cursor cursor=sqLiteDatabase.query("name",null,null,null,null,null,null);
+        Cursor cursor=sqLiteDatabase.query("MyTable",null,null,null,null,null,null);
         int i=0;
         if(cursor.moveToFirst()){
             do{
                 i++;
-                String name=cursor.getString(cursor.getColumnIndex("name"));
-                data.add(name);
+//                每读一项都得 new一项 不然都是改同一项
+                TableItem tableItem=new TableItem();
+                tableItem.setName(cursor.getString(cursor.getColumnIndex("name")));
+                tableItem.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("id"))));
+                tableItem.setPrice(Double.parseDouble(cursor.getString(cursor.getColumnIndex("price"))));
+                data.add(tableItem);
             }while(cursor.moveToNext());
         }
         cursor.close();
@@ -94,7 +111,8 @@ public class Model_test8_activity extends BaseActivity {
     }
     public void deleteItem(String str){
         SQLiteDatabase sqLiteDatabase=dbHelp.getWritableDatabase();
-        sqLiteDatabase.delete("Name"," name = ?",new String[] {str});
+//        " name = ?",new String[] {str} 是组装删除条件 name="str"的删除
+        sqLiteDatabase.delete("MyTable"," name = ?",new String[] {str});
         Toast.makeText(Model_test8_activity.this,"delete success",Toast.LENGTH_SHORT).show();
     }
 }

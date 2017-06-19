@@ -24,6 +24,8 @@ import hash.HashName;
  * Created by wangyan on 2017/6/19.
  */
 
+//数据库：创建 开始插入  停止插入  展示
+//分别对应ll1->ll4
 public class Model_test7_activity extends BaseActivity implements View.OnClickListener{
     private DbHelp dbHelp;
     private DBHandler dbHandler;
@@ -49,7 +51,8 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
         test7_LL_2.setOnClickListener(this);
         test7_LL_3.setOnClickListener(this);
         test7_LL_4.setOnClickListener(this);
-        dbHelp=new DbHelp(this,"Name.db",null,1);
+//
+        dbHelp=new DbHelp(this,"MyDb.db",null,1);
         dbHandler=new DBHandler(new WeakReference<BaseActivity>(this));
     }
     public static void actionStart(Context context){
@@ -61,6 +64,9 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
         SQLiteDatabase sqLiteDatabase;
         switch (view.getId()){
             case R.id.test7_LL_1:
+//                获取可以写的数据库
+//                如果没有 就调用dbhelp里面的onCreate
+//                如果有 就获得写的权限
                 dbHelp.getWritableDatabase();
                 break;
             case R.id.test7_LL_2:
@@ -78,11 +84,15 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
         }
     }
     public void insertDb(){
+//      获得一个拥有写的权限的数据库
         SQLiteDatabase sqLiteDatabase=dbHelp.getWritableDatabase();
+//      存储key-value对 提供给数据库操作
         ContentValues contentValues=new ContentValues();
+//        name 就是key hash...为value  （name为属性 key）
         contentValues.put("name", HashName.getHashRandom(8));
-//        name属性名
-        sqLiteDatabase.insert("name",null,contentValues);
+        contentValues.put("price", 12.32);
+//        insert此处name为表名
+        sqLiteDatabase.insert("MyTable",null,contentValues);
 //        name表名
         Toast.makeText(Model_test7_activity.this,"insert success",Toast.LENGTH_SHORT).show();
     }

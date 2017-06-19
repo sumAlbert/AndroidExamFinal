@@ -34,6 +34,7 @@
         <activity android:name=".WY_test4_activity" />
         <activity android:name=".model_activity" />
         <activity android:name=".model_test1_activity" />
+        <activity android:name=".Model_test2_activity"/>
         <activity android:name=".Model_test3_activity"/>
         <activity android:name=".Model_test5_activity"/>
         <activity android:name=".model_test6_activity" />
