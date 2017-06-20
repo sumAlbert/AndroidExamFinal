@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,13 @@ public class Model_test3_activity extends BaseActivity {
         test3_adapt=new Model_Test3_Adapt(Model_test3_activity.this,R.layout.activity_model_test3_listview,touchList);
 //        把很多项的内容放在listview
         test3_ListView.setAdapter(test3_adapt);
+        test3_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Touch touch=touchList.get(position);
+                Toast.makeText(Model_test3_activity.this,touch.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     public static void actionStart(Context context){
         Intent intent=new Intent(context,Model_test3_activity.class);
@@ -61,9 +71,11 @@ public class Model_test3_activity extends BaseActivity {
             while(cursor.moveToNext()){
                 String displayName=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                 String displayTel=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                String displayEmail=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
                 Touch touch=new Touch();
                 touch.setName(displayName);
                 touch.setTel(displayTel);
+                touch.setEmail(displayEmail);
                 touchList.add(touch);
             }
         }catch (Exception exception){

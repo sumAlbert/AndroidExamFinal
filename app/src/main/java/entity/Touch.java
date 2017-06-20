@@ -7,6 +7,14 @@ package entity;
 public class Touch {
     private String name;
     private String tel;
+    private String email;
+    private String phoneType;
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public void setPhoneType(String phoneType){
+        this.phoneType=phoneType;
+    }
     public void setName(String name){
         this.name=name;
     }
@@ -18,5 +26,11 @@ public class Touch {
     }
     public String getTel(){
         return this.tel;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+    public String getPhoneType(){
+        return this.phoneType;
     }
 }
