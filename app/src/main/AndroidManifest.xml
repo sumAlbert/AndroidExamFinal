@@ -65,6 +65,11 @@
             android:exported="true"
             android:enabled="true">
         </service>
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="0ab08f51a7b9d81b958b64363222e3f8">
+            <!--//开发者的key。华：68aa2e558afefe286636958b2090b2e7-->
+        </meta-data>
     </application>
 
 </manifest>
