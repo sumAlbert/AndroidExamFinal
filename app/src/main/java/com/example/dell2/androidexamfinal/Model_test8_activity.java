@@ -41,7 +41,7 @@ public class Model_test8_activity extends BaseActivity {
         init();
     }
     public void init(){
-        dbHelp=new DbHelp(this,"MyDb.db",null,1);
+        dbHelp=new DbHelp(this,"MyDb_test.db",null,1);
         displayDb();
         test8_ListView=(ListView)findViewById(R.id.test8_ListView);
 //        每一项适配
@@ -57,14 +57,14 @@ public class Model_test8_activity extends BaseActivity {
 //               设置对话框的标题
                 dialog.setTitle("Delete this item?");
 //                设置对话框的内容
-                dialog.setMessage(data.get(i).getName());
+                dialog.setMessage(data.get(i).getLog());
 //                设置是否取消
                 dialog.setCancelable(false);
 //                设置积极按钮
                 dialog.setPositiveButton("OK",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteItem(data.get(pos).getName());
+                        deleteItem(data.get(pos).getLog());
 //                        现在的data删除
                         data.clear();
 //                        从新获取元素 从新适配
@@ -93,26 +93,31 @@ public class Model_test8_activity extends BaseActivity {
 //    展示数据  把数据库的数据组装到data里面每一项
     public void displayDb(){
         SQLiteDatabase sqLiteDatabase=dbHelp.getWritableDatabase();
-        Cursor cursor=sqLiteDatabase.query("MyTable",null,null,null,null,null,null);
+        Cursor cursor=sqLiteDatabase.query("MyTable_test",null,null,null,null,null,null);
+        List<TableItem> data_temp=new ArrayList<>();
         int i=0;
         if(cursor.moveToFirst()){
             do{
                 i++;
 //                每读一项都得 new一项 不然都是改同一项
                 TableItem tableItem=new TableItem();
-                tableItem.setName(cursor.getString(cursor.getColumnIndex("name")));
-                tableItem.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("id"))));
-                tableItem.setPrice(Double.parseDouble(cursor.getString(cursor.getColumnIndex("price"))));
-                data.add(tableItem);
+                tableItem.setCreateTIME(cursor.getString(cursor.getColumnIndex("createTime")));
+                tableItem.setLog(cursor.getString(cursor.getColumnIndex("log")));
+//                tableItem.setId(Integer.parseInt(cursor.getString(cursor.getColumnIndex("id"))));
+//                tableItem.setPrice(Double.parseDouble(cursor.getString(cursor.getColumnIndex("price"))));
+                data_temp.add(tableItem);
             }while(cursor.moveToNext());
         }
         cursor.close();
+        for(int m=0;m<data_temp.size();m++){
+            data.add(data_temp.get(data_temp.size()-1-m));
+        }
         Toast.makeText(Model_test8_activity.this,String.valueOf(i),Toast.LENGTH_SHORT).show();
     }
     public void deleteItem(String str){
         SQLiteDatabase sqLiteDatabase=dbHelp.getWritableDatabase();
 //        " name = ?",new String[] {str} 是组装删除条件 name="str"的删除
-        sqLiteDatabase.delete("MyTable"," name = ?",new String[] {str});
+        sqLiteDatabase.delete("MyTable_test"," log = ?",new String[] {str});
         Toast.makeText(Model_test8_activity.this,"delete success",Toast.LENGTH_SHORT).show();
     }
 }

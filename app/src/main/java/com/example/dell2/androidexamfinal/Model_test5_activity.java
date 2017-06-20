@@ -46,6 +46,7 @@ public class Model_test5_activity extends BaseActivity implements View.OnClickLi
 //                com.example.broadcast.Test5 可以改变test5值（or其他）
 //                发送
                 Intent intent=new Intent("com.example.broadcast.Test5");
+                intent.putExtra("test","100");
                 sendBroadcast(intent);
                 break;
             default:

@@ -38,8 +38,9 @@ public class model_test6_activity extends BaseActivity{
     }
     public void init(){
 //        在string数组data中添加 最后显示在listview里面（左滑菜单里面）
-        data.add("fragment1");
-        data.add("fragment2");
+        data.add("数学");
+        data.add("物理");
+        data.add("计算机");
         test6_ListView=(ListView)findViewById(R.id.test6_ListView);
         test6_textView=(TextView)findViewById(R.id.test6_textView);
         test6_DrawerLayout=(DrawerLayout)findViewById(R.id.test6_DrawerLayout);
@@ -55,6 +56,15 @@ public class model_test6_activity extends BaseActivity{
 //               i是第几项
                 String str=data.get(i);
                 test6_textView.setText(str);
+                if(str.equals("数学")){
+                    str=str+"我爱数学";
+                }
+                if(str.equals("物理")){
+                    str=str+"我爱物理";
+                }
+                if(str.equals("计算机")){
+                    str=str+"我爱计算机";
+                }
 //                从底下弹出的小提示
 //                第一个为activity 第二个弹出内容 第三个固定 最后一定要 .show()
                 Toast.makeText(model_test6_activity.this,str,Toast.LENGTH_SHORT).show();

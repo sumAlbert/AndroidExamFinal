@@ -8,6 +8,14 @@ public class TableItem {
     private int id;
     private String name;
     private double price;
+    private String log;
+    private String createTIME;
+    public void setLog(String log){
+        this.log=log;
+    }
+    public void setCreateTIME(String createTIME){
+        this.createTIME=createTIME;
+    }
     public void setId(int id){
         this.id=id;
     }
@@ -25,5 +33,11 @@ public class TableItem {
     }
     public double getPrice(){
         return this.price;
+    }
+    public String getLog(){
+        return this.log;
+    }
+    public String getCreateTIME(){
+        return this.createTIME;
     }
 }

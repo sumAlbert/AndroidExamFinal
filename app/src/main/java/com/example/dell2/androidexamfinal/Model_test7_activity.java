@@ -12,6 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import collector.BaseActivity;
 import db.DBHandler;
@@ -52,7 +55,7 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
         test7_LL_3.setOnClickListener(this);
         test7_LL_4.setOnClickListener(this);
 //
-        dbHelp=new DbHelp(this,"MyDb.db",null,1);
+        dbHelp=new DbHelp(this,"MyDb_test.db",null,1);
         dbHandler=new DBHandler(new WeakReference<BaseActivity>(this));
     }
     public static void actionStart(Context context){
@@ -77,7 +80,7 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
                 Toast.makeText(Model_test7_activity.this,"over",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.test7_LL_4:
-                displayDb();
+                //displayDb();
                 break;
             default:
                 break;
@@ -89,10 +92,12 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
 //      存储key-value对 提供给数据库操作
         ContentValues contentValues=new ContentValues();
 //        name 就是key hash...为value  （name为属性 key）
-        contentValues.put("name", HashName.getHashRandom(8));
-        contentValues.put("price", 12.32);
+//        contentValues.put("name", HashName.getHashRandom(8));
+        String str=getDate();
+        contentValues.put("createTime",str);
+        contentValues.put("log","log:"+HashName.getHashRandom(8));
 //        insert此处name为表名
-        sqLiteDatabase.insert("MyTable",null,contentValues);
+        sqLiteDatabase.insert("MyTable_test",null,contentValues);
 //        name表名
         Toast.makeText(Model_test7_activity.this,"insert success",Toast.LENGTH_SHORT).show();
     }
@@ -110,5 +115,10 @@ public class Model_test7_activity extends BaseActivity implements View.OnClickLi
     }
     public DBHandler getHandler(){
         return this.dbHandler;
+    }
+    public String getDate(){
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+        return date;
     }
 }

@@ -39,9 +39,9 @@ public class Test8_Adapt extends ArrayAdapter<TableItem> {
         TextView test8_textView=(TextView)view.findViewById(R.id.test8_textView);
         TextView test8_textView_id=(TextView)view.findViewById(R.id.test8_textView_id);
         TextView test8_textView_price=(TextView)view.findViewById(R.id.test8_textView_price);
-        test8_textView.setText(item.getName());
-        test8_textView_id.setText(String.valueOf(item.getId()));
-        test8_textView_price.setText(String.valueOf(item.getPrice()));
+//        test8_textView.setText(item.getName());
+        test8_textView_id.setText(item.getCreateTIME());
+        test8_textView_price.setText(item.getLog());
         return view;
     }
 }

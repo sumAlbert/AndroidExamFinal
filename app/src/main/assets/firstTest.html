@@ -38,7 +38,7 @@
     <script type="text/javascript">
         var url = location.search;
         var longitude=116.480983;
-        var latitude=40.0958;
+        var latitude=30.0958;
         if (url.indexOf("?") != -1) {
           var str = url.substr(1);
           strs = str.split("&");
@@ -63,6 +63,24 @@
             //TODO 针对选中的poi实现自己的功能
             placeSearch.search(e.poi.name)
         });
+        AMap.service('AMap.Geocoder',function(){//回调函数
+    //实例化Geocoder
+
+    geocoder = new AMap.Geocoder({
+        // city: "010"//城市，默认：“全国”
+    });
+            //逆地理编码
+	var lnglatXY=[longitude, latitude];//地图上所标点的坐标
+	geocoder.getAddress(lnglatXY, function(status, result) {
+	    if (status === 'complete' && result.info === 'OK') {
+	    	alert(result.regeocode.formattedAddress);
+	       //获得了有效的地址信息:
+	       //即，result.regeocode.formattedAddress
+	    }else{
+	       //获取地址失败
+	    }
+	});
+})
         //        function test() {
 //            alert("123");
 //            window.control.toastMessage("js调用android");
