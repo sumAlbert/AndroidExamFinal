@@ -385,7 +385,7 @@ public class ZQ_test1_activity  extends BaseActivity implements View.OnClickList
     }
 
     public static void actionStart(Context context) {
-        Intent intent=new Intent(context,Test4.class);
+        Intent intent=new Intent(context,ZQ_test1_activity.class);
         context.startActivity(intent);
     }
 }

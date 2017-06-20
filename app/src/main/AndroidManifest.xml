@@ -66,6 +66,10 @@
             android:exported="true"
             android:enabled="true">
         </service>
+        <service android:name="service.MyService2"
+            android:exported="true"
+            android:enabled="true">
+        </service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="90c3cb6d9c270799fa00fe4616c2ffe7">

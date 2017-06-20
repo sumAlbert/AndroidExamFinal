@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.example.dell2.androidexamfinal.Model_test7_activity;
+import com.example.dell2.androidexamfinal.ZQ_test3_activity;
 
 import java.lang.ref.WeakReference;
 
@@ -25,7 +26,7 @@ public class DBHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        Model_test7_activity activity=(Model_test7_activity)wr.get();
+        ZQ_test3_activity activity=(ZQ_test3_activity)wr.get();
         if(activity==null)
             return;
 //        如果再次 按键  扔掉重复的message 保证队列里只有一个包
