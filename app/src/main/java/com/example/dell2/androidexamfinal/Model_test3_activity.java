@@ -18,9 +18,7 @@ import entity.Touch;
  * Created by wangyan on 2017/6/19.
  */
 //访问通讯录
-//整体界面布局 activity_model_test3（xml）
-//每一项内容布局activity_model_test3_listview（xml）
-// 适配器adapt/model_test3_adapt
+//整体
 public class Model_test3_activity extends BaseActivity {
 //    activity_model_test3.xml
     private ListView test3_ListView;
