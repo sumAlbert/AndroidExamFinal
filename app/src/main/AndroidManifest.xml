@@ -54,6 +54,7 @@
         <activity android:name=".Model_test8_activity" />
         <activity android:name=".model_test1_activity2" />
         <activity android:name=".Model_test4_activity" />
+        <activity android:name=".Test4"/>
         <!--广播接收器的注册-->
         <!--action android:name="com.example.broadcast.Test5" 确定对什么广播起作用-->
         <receiver android:name="broadcast.Test5_BroadcastReceiver">
@@ -67,7 +68,7 @@
         </service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="0ab08f51a7b9d81b958b64363222e3f8">
+            android:value="90c3cb6d9c270799fa00fe4616c2ffe7">
             <!--//开发者的key。华：68aa2e558afefe286636958b2090b2e7-->
         </meta-data>
     </application>

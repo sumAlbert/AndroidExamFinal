@@ -66,7 +66,8 @@ public class model_activity extends BaseActivity implements View.OnClickListener
                 Model_test3_activity.actionStart(model_activity.this);
                 break;
             case R.id.test4_mo:
-                Model_test4_activity.actionStart(model_activity.this);
+                Test4.actionStart(model_activity.this);
+//                Model_test4_activity.actionStart(model_activity.this);
                 break;
             case R.id.test5_mo:
                 Model_test5_activity.actionStart(model_activity.this);
